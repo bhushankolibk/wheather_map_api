@@ -1,13 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:wheather_app/common/app_const.dart';
+import 'package:wheather_app/app_const/common.dart';
 import 'package:wheather_app/model/model_wheather.dart';
 import 'package:wheather_app/services/web_services.dart';
 
 class VmWheather with ChangeNotifier {
   ModelWheather wheatherData;
+  String msg;
   requestResponseState responseState = requestResponseState.Loading;
 
+// call api
   Future<void> getData() async {
     String api = 'http://api.openweathermap.org/data/2.5/forecast';
     String appId = '09c698e79d6e9c2a91fd987397e6b041';
@@ -24,6 +26,7 @@ class VmWheather with ChangeNotifier {
       notifyListeners();
     } catch (error) {
       responseState = requestResponseState.Error;
+      msg = error.toString();
       notifyListeners();
       throw error;
     }

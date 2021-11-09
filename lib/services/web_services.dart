@@ -1,5 +1,7 @@
 import 'package:http/http.dart' as http;
 
+// get data from server
+
 Future getRequest({String url}) async {
   final response = await http.get(
     Uri.parse(url),

@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
+// enum for server request
 enum requestResponseState { Error, DataReceived, Loading }
 
+const defaultPadding = 16.0;
+const defaultPaddingTwo = 8.0;
+const defaultHeightSmall = 10.0;
+const defaultHeightMedium = 20.0;
+const defaultHeightLarge = 30.0;
+
+const defaultWidthSmall = 10.0;
+const defaultWidthMedium = 20.0;
+const defaultWidthLarge = 30.0;
+
+// get current location
 Future<dynamic> takeGPSLocation({BuildContext context}) async {
   bool serviceEnabled;
   LocationPermission permission;
